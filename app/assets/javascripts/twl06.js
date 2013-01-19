@@ -1,4 +1,4 @@
-words = ['AA',
+twl06Words = ['AA',
 'AAH',
 'AAHED',
 'AAHING',

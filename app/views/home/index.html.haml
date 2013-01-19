@@ -1,8 +1,13 @@
-#ng-app{'ng-app' => ''}
+#ng-app{'ng-app' => '', 'ng-controller' => 'WordsCtrl'}
   %h1 Cheat on Word Games
   %p 
     Type in the letters you have to work with in the box below. You will see all the words
     that can be made with those letters below.
+  %p
+    Using the twl06 word dictionary, which contains {{words.length}} words
   %form
-    %input{id: :letters, name: :letters, type: :text, name: :letters}
-  %h2 Words
+    %input{id: :letters, name: :letters, type: :text, name: :letters, 'ng-model' => 'letters'}
+  %h2 Words you can make with {{letters}}
+  %ul
+    %li{'ng-repeat' => 'word in words | filter:hasLettersFor'}
+      {{word}}
