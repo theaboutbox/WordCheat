@@ -28,3 +28,5 @@ function WordsCtrl($scope) {
     return counter;
   };
 }
+
+WordsCtrl.$inject = ['$scope'];
