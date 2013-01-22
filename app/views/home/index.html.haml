@@ -4,10 +4,13 @@
     Type in the letters you have to work with in the box below. You will see all the words
     that can be made with those letters below.
   %p
-    Using the twl06 word dictionary, which contains {{words.length}} words
+    Using the 
+    %a{href: 'http://www.isc.ro/en/commands/lists.html'} twl06
+    word dictionary, which contains {{words.length}} words
   %form
     %input{id: :letters, name: :letters, type: :text, name: :letters, 'ng-model' => 'letters'}
-  %h2 Words you can make with {{letters}}
-  %ul
-    %li{'ng-repeat' => 'word in words | filter:hasLettersFor'}
-      {{word}}
+  .results{'ng-show' => 'letters.length > 0'}
+    %h2 {{filteredWords.length}} words you can make with {{letters}}
+    %ul
+      %li{'ng-repeat' => 'word in filteredWords = (words | filter:hasLettersFor)'}
+        {{word}}
